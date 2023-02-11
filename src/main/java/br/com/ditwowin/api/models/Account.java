@@ -41,6 +41,10 @@ public class Account implements Serializable {
     private String clientCpf;
 
     public boolean checkIfTheBalanceWillBeNegative (BigDecimal amountToDeposit) {
-        return balance.subtract(amountToDeposit).compareTo(BigDecimal.ZERO) < 0;
+        return balance.subtract(amountToDeposit).compareTo(BigDecimal.ZERO) < 0 ;
+    }
+
+    public BigDecimal subtractBalance(BigDecimal value) {
+        return balance.subtract(value);
     }
 }

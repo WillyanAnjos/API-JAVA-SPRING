@@ -51,6 +51,14 @@ public class AccountService {
 
     }
 
+    public Account getByCpf(String cpf) {
+        if (cpf == null || CPFValidateService.validateCPF(cpf)) {
+            return null;
+        }
+
+        return accountRepository.findByClientCpf(cpf);
+    }
+
     private boolean validateStatusEnum(StatusAccount status) {
         return switch (status) {
             case ACTIVE, BLOCKED, FROZEN -> true;

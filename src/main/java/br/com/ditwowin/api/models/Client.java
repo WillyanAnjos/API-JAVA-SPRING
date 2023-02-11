@@ -41,8 +41,6 @@ public class Client implements Serializable {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-
-
     public boolean validateName() {
         if (name != null && name.length() > 0) {
             return true;

@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
 
-    @Query("SELECT t FROM Transaction t WHERE t.transactionDate BETWEEN :start AND :end")
-    List<Transaction> filterByTransactionDate(LocalDateTime start, LocalDateTime end);
+    @Query("SELECT t FROM Transaction t WHERE t.transactionDate BETWEEN :start AND :end AND t.senderAccount = :senderAccount")
+    List<Transaction> filterByTransactionDate(Account senderAccount, LocalDateTime start, LocalDateTime end);
 
 }
