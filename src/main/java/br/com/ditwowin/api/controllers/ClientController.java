@@ -17,14 +17,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value = "api/v1/")
+@RequestMapping(value = "api/v1/client")
 @CrossOrigin
 public class ClientController {
 
     @Autowired
     private ClientService clientService;
 
-    @PostMapping("createClient")
+    @PostMapping("create")
     @ResponseBody
     @CrossOrigin
     public ResponseEntity<?> createNewClient (@RequestBody @Valid Client client) {
@@ -35,7 +35,7 @@ public class ClientController {
         return new ResponseEntity<>("CPF already in use",HttpStatus.BAD_REQUEST);
     }
 
-    @DeleteMapping("deleteClient/{cpf}")
+    @DeleteMapping("delete/{cpf}")
     @ResponseBody
     @CrossOrigin
     public ResponseEntity<?> deleteClient (@PathVariable String cpf) {
